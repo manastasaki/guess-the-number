@@ -15,9 +15,17 @@ int main()
     srand (time (0));
     target = rand ();
     
+    printf ("Welcome to the number guessing game!\n");
+    printf ("Copyright (c) 2022 by Maria Anastasaki\n\n");
+    printf ("I have a number in my mind (memory) and your task is to find it.\n");
+    printf ("You have multiple attempts until you manage to huess the number.\n");
+    printf ("After each failed attempt you will get a hint.\n");
+    printf ("The number is between 0 and 255. Let's go!\n");
+    
     while (1)
     {
         // Ask for (read) a number from the terminal
+        printf ("\nEnter your guess: ");
         scanf ("%u", &input);
         guess = input;
     

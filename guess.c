@@ -10,6 +10,7 @@ int main()
     // Declarations
     unsigned char guess, target;
     unsigned int input;
+    unsigned int count;
 
     // Assign a random value as the target of the guessing game
     srand (time (0));
@@ -22,20 +23,23 @@ int main()
     printf ("After each failed attempt you will get a hint.\n");
     printf ("The number is between 0 and 255. Let's go!\n");
     
+    count = 0;
+
     while (1)
     {
         // Ask for (read) a number from the terminal
         printf ("\nEnter your guess: ");
         scanf ("%u", &input);
         guess = input;
-    
+        count = count + 1; // or count ++
+
         // Compare the number that we read with the target number
         // If the guess is equal with the target then we print "You guessed correctly." and we exit the program
         // If the guess is higher than the target then we print "You aimed too high."
         // Else, we print "You aimed too low."
         if (guess == target)
         {
-            printf ("You guessed correctly!\n");
+            printf ("You guessed correctly in %u tries! The number was %u.\n", count, target);
             return 0;
         }
 
@@ -43,7 +47,7 @@ int main()
             printf ("You aimed too high, try again.\n");
         else
             printf ("You aimed too low, try again.\n");
-        
+
         // Repeat from "Ask for (read)..."
     }
 }
